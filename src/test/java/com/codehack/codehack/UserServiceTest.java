@@ -1,3 +1,5 @@
+package com.codehack.codehack;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -10,6 +12,9 @@ import java.util.List;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.*;
+
+import com.codehack.codehack.repository.*;
+import com.codehack.codehack.entity.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -31,7 +36,7 @@ public class UserServiceTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.username", is("TestUser")))
                 .andExpect(jsonPath("$.score", is(50)))
-                .andExpect(jsonPath("$.badges", hasSize(1))); // Assuming badges are assigned automatically
+                .andExpect(jsonPath("$.badges", hasSize(1))); 
     }
 
     @Test
@@ -63,7 +68,6 @@ public class UserServiceTest {
         mockMvc.perform(delete("/users/" + user.getUserId()))
                 .andExpect(status().isNoContent());
 
-        // Verify user is deleted
         mockMvc.perform(get("/users/" + user.getUserId()))
                 .andExpect(status().isNotFound());
     }
@@ -78,5 +82,4 @@ public class UserServiceTest {
                 .andExpect(status().isBadRequest());
     }
 
-    // Add more test methods for validation, error handling, etc...
 }

@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "b15ea1ef-5fe3-4796-9f3f-f70f2c46f28b",
+		"name": "CoderHack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26672039"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Shruti",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/coderhack/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get by UserID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/coderhack/users/65fc99f3007fb745e346825c"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Score",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "newScore",
+							"value": "60",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/coderhack/users/65fc9af1007fb745e346825d"
+			},
+			"response": []
+		},
+		{
+			"name": "Sorted by Score",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/coderhack/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/coderhack/users/65fc9af1007fb745e346825d"
+			},
+			"response": []
+		}
+	]
+}

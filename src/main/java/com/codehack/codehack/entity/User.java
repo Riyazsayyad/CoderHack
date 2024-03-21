@@ -1,13 +1,16 @@
+package com.codehack.codehack.entity;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.*;
+import java.util.List;
 
-@Data // Generates getters, setters, equals, hashCode, and toString methods
-@NoArgsConstructor // Generates a no-argument constructor
-@AllArgsConstructor // Generates an all-argument constructor
-@Document(collection = "users") // MongoDB specific annotation
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+@Document(collection = "users") 
 public class User {
-    @Id // Marks the field as the primary identifier
+    @Id 
     private String userId;
     private String username;
     private int score;

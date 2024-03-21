@@ -1,7 +1,14 @@
+package com.codehack.codehack.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList; // Added import
 import java.util.List;
 import java.util.Optional;
+
+import com.codehack.codehack.repository.*;
+import com.codehack.codehack.entity.*;
 
 @Service
 public class UserService {
@@ -54,7 +61,5 @@ public class UserService {
         return badges;
     }
 
-    public List<User> getAllUsersSortedByScore() {
-        return userRepository.findAll(Sort.by(Sort.Direction.DESC, "score"));
-    }
 }
+
