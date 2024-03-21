@@ -39,6 +39,11 @@ public class UserController {
 
     @PutMapping("/{userId}")
     public ResponseEntity<User> updateUserScore(@PathVariable String userId, @RequestParam int newScore) {
+        
+        if (newScore <= 0) {
+            return new ResponseEntity<>("Score must be greater than 0", HttpStatus.BAD_REQUEST);
+        }
+        
         User updatedUser = userService.updateUserScore(userId, newScore);
         if (updatedUser != null) {
             return new ResponseEntity<>(updatedUser, HttpStatus.OK);
