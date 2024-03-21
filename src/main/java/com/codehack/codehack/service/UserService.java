@@ -53,4 +53,8 @@ public class UserService {
         }
         return badges;
     }
+
+    public List<User> getAllUsersSortedByScore() {
+        return userRepository.findAll(Sort.by(Sort.Direction.DESC, "score"));
+    }
 }
